@@ -28,7 +28,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform -chdir=Lambda_zipper_s3/terraform init
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var-file=terraform/env/${{ matrix.env }}.tfvars
+        run: terraform -chdir=Lambda_zipper_s3/terraform apply -auto-approve -var-file=env/${{ matrix.env }}.tfvars
