@@ -26,9 +26,9 @@ resource "aws_lambda_function" "zip_s3_files" {
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.9"
 
-  filename         = "${path.module}/../Lambda/lambda.zip"
-  source_code_hash = filebase64sha256("${path.module}/../Lambda/lambda.zip")
-
+ filename         = "${path.module}/../Lambda/lambda_function.zip"
+  source_code_hash = filebase64sha256("${path.module}/../Lambda/lambda_function.zip") 
+ 
   environment {
     variables = {
       BUCKET_NAME = var.bucket_name
