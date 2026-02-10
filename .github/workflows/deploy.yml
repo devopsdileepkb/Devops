@@ -30,6 +30,5 @@ jobs:
       - name: Terraform Init
         run: terraform -chdir=Lambda_zipper_s3/terraform init
 
-
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var-file=Lambda_zipper_s3/terraform/env/${{ matrix.env }}.tfvars
+        run: terraform -chdir=Lambda_zipper_s3/terraform apply -auto-approve -var-file=env/${{ matrix.env }}.tfvars
